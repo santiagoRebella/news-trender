@@ -61,7 +61,7 @@ class Page extends React.Component {
 }
 
 Page.propTypes = {
-  data: React.propTypes.object.isRequired
+  data: React.PropTypes.object.isRequired
 };
 
 module.exports = Page;
