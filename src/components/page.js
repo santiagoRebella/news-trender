@@ -4,7 +4,7 @@ const React = require('react');
 /*-const {PropTypes}= require('react');*/
 const rc = React.createElement;
 
-class Index extends React.Component {
+class Page extends React.Component {
 
     constructor(props) {
         super(props);
@@ -66,6 +66,8 @@ class Index extends React.Component {
     }
 }
 
-/*Header.propTypes = {};*/
+Page.propTypes = {
+  data: React.propTypes.object.isRequired
+};
 
-module.exports = Index;
+module.exports = Page;
