@@ -4,7 +4,8 @@
   "description": "a rock thrown on the sea",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": {
     "name": "Santiago Rebella",
