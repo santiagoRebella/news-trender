@@ -1,7 +1,6 @@
 "use strict"
 
 const React = require('react');
-/*-const {PropTypes}= require('react');*/
 const rc = React.createElement;
 
 class Page extends React.Component {
@@ -41,9 +40,6 @@ class Page extends React.Component {
         keywords: []
       };
 */
-
-
-
       return rc("html", {},
         rc("head", {},
           rc("meta", { charSet: "utf-8"}),
@@ -60,8 +56,6 @@ class Page extends React.Component {
           rc("h1", {}, title, trendRank),
           related
         )
-
-
       );
     }
 }
