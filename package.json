@@ -1,0 +1,26 @@
+{
+  "name": "first-wave",
+  "version": "1.0.0",
+  "description": "a rock thrown on the sea",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": {
+    "name": "Santiago Rebella",
+    "email": "santiago_rebella@hotmail.com",
+    "url": "https://github.com/santiagoRebella"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cheerio": "^0.22.0",
+    "express": "^4.14.0",
+    "promise": "^7.1.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.2"
+  }
+}
