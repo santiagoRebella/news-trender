@@ -16,7 +16,7 @@ module.exports = {
     fontFamily: 'Verdana, Arial'
   },
   container: {
-    maxWidth: 1025,
+    maxWidth: 1045,
     margin: '0 auto'
   },
   aside: {
