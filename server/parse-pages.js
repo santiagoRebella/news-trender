@@ -41,7 +41,6 @@ module.exports = (pages) => {
       partial.divs.push(cleanFromTrash($(this).text()));
     });
     metas.each(function(index, item) {
-      console.log('metas each', item, item.attribs, item.attribs.keywords);
       if (item.attribs.keywords) {
         partial.metas.push(item.attribs.keywords);
         partial.metas.push(item.attribs.description);

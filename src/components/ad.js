@@ -2,19 +2,22 @@
 
 const React= require('react');
 const rc = React.createElement;
+const styles = require('./styles');
 
 class Ad extends React.Component {
-
     render() {
-
-      return rc("aside", {},
-        'ad'
-      );
+      const getRawAdString = () => {
+        return this.props.adString
+      }
+      return rc("aside", {
+        dangerouslySetInnerHTML: {__html: getRawAdString()},
+        style: styles.aside
+      });
     }
 }
 
 Ad.propTypes = {
-  title: React.PropTypes.string.isRequired
+  adString: React.PropTypes.string.isRequired
 };
 
 module.exports = Ad;

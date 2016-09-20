@@ -15,37 +15,52 @@ module.exports = {
     padding: 0,
     fontFamily: 'Verdana, Arial'
   },
+  container: {
+    maxWidth: 1025,
+    margin: '0 auto'
+  },
   aside: {
-    width: '20%',
-    height: 60,
     display: 'inline-block',
-    verticalAlign: 'top'
+    verticalAlign: 'top',
+    textAlign: 'center'
   },
   nav: {
-    width: '60%',
     minHeight: 60,
     display: 'inline-block'
   },
   header: {
     width: '100%',
-    height: 30
+    textAlign: 'center'
+  },
+  h1: {
+    backgroundColor: 'rgba(0, 0, 0, 0.3)'
   },
   footer: {
     width: '100%',
-    height: 30
-  },
-  h1: {
     textAlign: 'center'
   },
+  rank: {
+    fontWeight: 'bold',
+    margin: 10
+  },
   a: {
+    textDecoration: 'none',
+    display: 'inline-block',
+    marginLeft: 15
+
+  },
+  linkRow : {
     display: 'block',
     padding: 10,
     margin: '10px 0',
-    backgroundColor: 'gray',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
     textDecoration: 'none',
     maxWidth: 250,
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis'
+  },
+  indexSpan: {
+
   }
 };

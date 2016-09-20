@@ -9,8 +9,8 @@ const scrapper = require('./scrapper');
 const parsePages = require('./parse-pages');
 const proper = require('./proper');
 
-const Page = require('../src/components/page');
-const Index= require('../src/components/index');
+const Page = require('../src/views/page');
+const Index= require('../src/views/index');
 
 let AI = {};
 
@@ -40,6 +40,8 @@ AI.init = (server) => {
     })
     .catch((data) => { console.error('error on trender -->', data); });
 
+  let delay = 60 * 60 * 1000; // 1 hour in msec
+  setInterval(AI.init, delay);
 };
 
 AI.render = (data, server) => {

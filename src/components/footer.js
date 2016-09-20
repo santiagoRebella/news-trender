@@ -2,19 +2,20 @@
 
 const React = require('react');
 const rc = React.createElement;
+const Ad = require('./ad');
+const styles = require('./styles');
 
 class Footer extends React.Component {
 
     render() {
-
-      return rc("footer", {},
-        "footer text"
+      return rc("footer", {style: styles.footer},
+        rc(Ad, {adString: this.props.adString})
       );
     }
 }
 
-/*Footer.propTypes = {
-  data: React.PropTypes.object.isRequired
-};*/
+Footer.propTypes = {
+  adString: React.PropTypes.string.isRequired
+};
 
 module.exports = Footer;
