@@ -9,6 +9,17 @@ const Footer = require('../components/footer');
 const Analytics = require('../components/analytics');
 const constants = require('../constants');
 
+function unique(arr) {
+    var u = {}, a = [];
+    for(var i = 0, l = arr.length; i < l; ++i){
+        if(!u.hasOwnProperty(arr[i])) {
+            a.push(arr[i]);
+            u[arr[i]] = 1;
+        }
+    }
+    return a;
+}
+
 class Page extends React.Component {
 
   render() {
@@ -16,9 +27,9 @@ class Page extends React.Component {
     let trendRank = this.props.data[0].term.index;
 
     let related = this.props.data.map((item, ind) => {
+      item.titles = unique(item.titles);
       let title = item.titles.map((t, index)=> {
-        return rc("h2", {key: t + "" + index}, t,
-          rc("small", {}, trendRank)
+        return rc("h2", {key: t + "" + index}, t
         );
       });
       let p = item.p.map((par, index) => {
@@ -57,23 +68,25 @@ class Page extends React.Component {
         rc("title", {}, title)
       ),
       rc("body", {style: styles.body},
-        rc("section", {},
-          rc(Header, { title: title, trendRank, adString: constants.topBanner })
-        ),
-        rc("section", {style: {float: "left"}},
-          rc(Ad, {adString: constants.sideBannerBig})
-        ),
-        rc("section", {style: {display: "inline-block", width: 424, padding: 10}},
-          related
-        ),
-        rc("section", {style: {float: "right"}},
-          rc(Ad, {adString: constants.sideBannerBig})
-        ),
-        rc("section", {},
-          rc(Footer, {adString: constants.footerBannerBig})
-        ),
-        rc("section", {},
-          rc(Analytics, {scriptString: constants.analytics})
+        rc("div", { style: styles.container },
+          rc("section", {},
+            rc(Header, { title: title, trendRank, adString: constants.topBanner })
+          ),
+          rc("section", {style: {float: "left"}},
+            rc(Ad, {adString: constants.sideBannerBig})
+          ),
+          rc("section", {style: {display: "inline-block", width: 424, padding: 10}},
+            related
+          ),
+          rc("section", {style: {float: "right"}},
+            rc(Ad, {adString: constants.sideBannerBig})
+          ),
+          rc("section", {},
+            rc(Footer, {adString: constants.footerBannerBig})
+          ),
+          rc("section", {},
+            rc(Analytics, {scriptString: constants.analytics})
+          )
         )
       )
     );
