@@ -104,7 +104,7 @@ module.exports = (pages) => {
 
     if (item.metas) {
       item.metas.forEach(meta => {
-        if (meta.includes(item.term.val)) { related.keywords.push(meta); }
+        if (meta.indexOf(item.term.val) !== -1) { related.keywords.push(meta); }
       });
     }
 
