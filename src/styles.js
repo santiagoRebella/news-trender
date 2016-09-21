@@ -22,6 +22,17 @@ module.exports = {
     fontSize: '1.2rem',
     backgroundColor: 'rgba(0, 120, 120, 0.3)'
   },
+  h1: {
+    backgroundColor: 'rgba(120, 0, 0, 0.1)',
+    borderBottom: '2px solid black',
+    fontSize: '1.2rem',
+    fontWeight: 'normal'
+  },
+  a: {
+    textDecoration: 'none',
+    display: 'inline-block',
+    marginLeft: 15
+  },
   container: {
     maxWidth: 1024,
     margin: '0 auto'
@@ -43,30 +54,19 @@ module.exports = {
     textAlign: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
   },
-  h1: {
-    backgroundColor: 'rgba(120, 0, 0, 0.1)',
-    borderBottom: '2px solid black',
-    fontSize: '1.2rem',
-    fontWeight: 'normal'
-  },
   footer: {
     width: '100%',
     textAlign: 'center'
   },
   rank: {
     display: 'inline-block',
-    fontWeight: 'bold',
+    fontWeight: 'normal',
+    color: 'white',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     margin: 10,
     width: 20,
-    border: '1px solid black',
-    borderRadius: 15,
     padding: 1,
     fontSize: '0.8rem'
-  },
-  a: {
-    textDecoration: 'none',
-    display: 'inline-block',
-    marginLeft: 15
   },
   linkRow : {
     display: 'block',
