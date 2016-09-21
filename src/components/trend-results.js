@@ -15,13 +15,17 @@ class TrendResults extends React.Component {
         return rc("p", { key: "par" + index }, par);
       });
 
-      return rc("div", {
+      return rc("a", {
         style: styles.trendRelated,
-        key: "rel" + ind
+        key: "rel" + ind,
+        href: `http://${item.url.host}/${item.url.path}`
       },
         title,
         p,
-        rc("a", { href: `http://${item.url.host}/${item.url.path}` }, item.url.host)
+        rc("span", {
+          href: `http://${item.url.host}/${item.url.path}`,
+          style: styles.a
+        }, item.url.host)
       );
     });
 

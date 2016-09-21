@@ -46,7 +46,8 @@ module.exports = {
   h1: {
     backgroundColor: 'rgba(120, 0, 0, 0.1)',
     borderBottom: '2px solid black',
-    fontSize: '1.4rem'
+    fontSize: '1.2rem',
+    fontWeight: 'normal'
   },
   footer: {
     width: '100%',
@@ -84,7 +85,7 @@ module.exports = {
     margin: 5
   },
   trendRelatedTitle: {
-    fontSize: '1.3rem',
+    fontSize: '1.1rem',
     marginTop: 0,
     textAlign: 'center',
     backgroundColor: 'rgba(0,0,0,0.1)'
