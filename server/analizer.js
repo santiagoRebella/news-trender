@@ -11,9 +11,9 @@ const cleanFromTrash = (string) => {
   return string;
 };
 
-function unique(arr) {
-    var u = {}, a = [];
-    for(var i = 0, l = arr.length; i < l; ++i){
+const unique = arr => {
+    let u = {}, a = [];
+    for(let i = 0, l = arr.length; i < l; ++i){
         if(!u.hasOwnProperty(arr[i])) {
             a.push(arr[i]);
             u[arr[i]] = 1;
@@ -78,7 +78,7 @@ module.exports = (pages) => {
       titles: [],
       p: [],
       divs: [],
-      keywords: []
+      metas: []
     };
 
     if (item.titles) {
@@ -104,7 +104,7 @@ module.exports = (pages) => {
 
     if (item.metas) {
       item.metas.forEach(meta => {
-        if (meta.indexOf(item.term.val) !== -1) { related.keywords.push(meta); }
+        related.metas.push(meta);
       });
     }
 
