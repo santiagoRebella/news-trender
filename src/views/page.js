@@ -2,23 +2,12 @@
 
 const React = require('react');
 const rc = React.createElement;
-const styles = require('../components/styles');
 const Header = require('../components/header');
-const Ad = require('../components/ad');
 const Footer = require('../components/footer');
-const Analytics = require('../components/analytics');
+const External = require('../components/external');
+const TrendResults = require('../components/trend-results');
 const constants = require('../constants');
-
-function unique(arr) {
-    var u = {}, a = [];
-    for(var i = 0, l = arr.length; i < l; ++i){
-        if(!u.hasOwnProperty(arr[i])) {
-            a.push(arr[i]);
-            u[arr[i]] = 1;
-        }
-    }
-    return a;
-}
+const styles = require('../styles');
 
 class Page extends React.Component {
 
@@ -26,35 +15,6 @@ class Page extends React.Component {
     let title = this.props.data[0].term.val;
     let trendRank = this.props.data[0].term.index;
 
-    let related = this.props.data.map((item, ind) => {
-      item.titles = unique(item.titles);
-      let title = item.titles.map((t, index)=> {
-        return rc("h2", {key: t + "" + index}, t
-        );
-      });
-      let p = item.p.map((par, index) => {
-        return rc("p", {key: "par" + index}, par);
-      });
-
-      return rc("div", {
-          style: styles.nav,
-          key: "rel" + ind
-        },
-        title,
-        p,
-        rc("a", {href: "http://"+ item.url.host + "/" + item.url.path}, item.url.host)
-      );
-    });
-
-    /*let related = {
-      url: item.url,
-      term: item.term,
-      titles: [],
-      p: [],
-      divs: [],
-      keywords: []
-    };
-*/
     return rc("html", {},
       rc("head", {},
         rc("meta", { charSet: "utf-8"}),
@@ -70,22 +30,26 @@ class Page extends React.Component {
       rc("body", {style: styles.body},
         rc("div", { style: styles.container },
           rc("section", {},
-            rc(Header, { title: title, trendRank, adString: constants.topBanner })
+            rc(Header, {
+              title: title,
+              trendRank,
+              tagsString: constants.topBanner
+            })
           ),
           rc("section", {style: {float: "left"}},
-            rc(Ad, {adString: constants.sideBannerBig})
+            rc(External, {tagsString: constants.sideBannerBig})
           ),
           rc("section", {style: {display: "inline-block", width: 424, padding: 10}},
-            related
+            rc(TrendResults, {data: this.props.data})
           ),
           rc("section", {style: {float: "right"}},
-            rc(Ad, {adString: constants.sideBannerBig})
+            rc(External, {tagsString: constants.sideBannerBig})
           ),
           rc("section", {},
-            rc(Footer, {adString: constants.footerBannerBig})
+            rc(Footer, {tagsString: constants.footerBannerBig})
           ),
           rc("section", {},
-            rc(Analytics, {scriptString: constants.analytics})
+            rc(External, {tagsString: constants.analytics})
           )
         )
       )

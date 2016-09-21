@@ -2,13 +2,12 @@
 
 const React = require('react');
 const rc = React.createElement;
-const styles = require('../components/styles');
 const Header = require('../components/header');
-const Ad = require('../components/ad');
+const External = require('../components/external');
 const LinksBox = require('../components/links-box');
 const Footer = require('../components/footer');
-const Analytics = require('../components/analytics');
 const constants = require('../constants');
+const styles = require('../styles');
 
 class Index extends React.Component {
 
@@ -33,23 +32,23 @@ class Index extends React.Component {
           rc("section", {},
             rc(Header, {
               title: "News Trender",
-              adString: constants.topBanner
+              tagsString: constants.topBanner
             })
           ),
           rc("section", {style: {float: "left"}},
-            rc(Ad, {adString: constants.sideBannerBig})
+            rc(External, {tagsString: constants.sideBannerBig})
           ),
           rc("section", {style: {display: "inline-block", padding: 10}},
             rc(LinksBox, {data: this.props.data})
           ),
           rc("section", {style: {float: "right"}},
-            rc(Ad, {adString: constants.sideBannerBig})
+            rc(External, {tagsString: constants.sideBannerBig})
           ),
           rc("section", {},
-            rc(Footer, {adString: constants.footerBannerBig})
+            rc(Footer, {tagsString: constants.footerBannerBig})
           ),
           rc("section", {},
-            rc(Analytics, {scriptString: constants.analytics})
+            rc(External, {tagsString: constants.analytics})
           )
         )
       )

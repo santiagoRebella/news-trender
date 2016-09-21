@@ -2,8 +2,8 @@
 
 const React= require('react');
 const rc = React.createElement;
-const styles = require('./styles');
-const Ad = require('./ad');
+const styles = require('../styles');
+const External = require('../components/external');
 
 class Header extends React.Component {
   render() {
@@ -13,7 +13,7 @@ class Header extends React.Component {
       rc("h1", {style: styles.h1}, this.props.title,
         rc("small", {style: styles.rank}, trendString)
       ),
-      rc(Ad, {adString: this.props.adString})
+      rc(External, {tagsString: this.props.tagsString})
     );
   }
 }
@@ -21,7 +21,7 @@ class Header extends React.Component {
 Header.propTypes = {
   title: React.PropTypes.string.isRequired,
   trendRank: React.PropTypes.number,
-  adString: React.PropTypes.string.isRequired
+  tagsString: React.PropTypes.string.isRequired
 };
 
 module.exports = Header;

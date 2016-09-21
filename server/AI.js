@@ -40,8 +40,7 @@ AI.init = (server) => {
     })
     .catch((data) => { console.error('error on trender -->', data); });
 
-  let delay = 60 * 60 * 1000; // 1 hour in msec
-  setInterval(AI.init, delay);
+  AI.timer();
 };
 
 AI.render = (data, server) => {
@@ -58,6 +57,23 @@ AI.render = (data, server) => {
   });
 
 };
+
+AI.restartInterval;
+AI.keepAliveInterval;
+
+AI.timer = () => {
+  // http://sstut.com/javascript/convert-hours-minutes-seconds-to-milliseconds.php
+  const restartDelay = 10800000; // 3 hours
+  const keepAliveDelay = 900000; // 15 mins
+
+  clearInterval(AI.restartInterval);
+  AI.restartInterval = setInterval(AI.init, restartDelay);
+
+  clearInterval(AI.keepAliveInterval);
+  AI.keepAliveInterval = setInterval(() => {
+    console.log('keeping it real', new Date());
+  }, keepAliveDelay);
+}
 
 
 module.exports = AI;

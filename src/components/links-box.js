@@ -2,7 +2,7 @@
 
 const React = require('react');
 const rc = React.createElement;
-const styles = require('./styles');
+const styles = require('../styles');
 
 class LinksBox extends React.Component {
 

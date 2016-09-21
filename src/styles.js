@@ -19,11 +19,6 @@ module.exports = {
     maxWidth: 1045,
     margin: '0 auto'
   },
-  aside: {
-    display: 'inline-block',
-    verticalAlign: 'top',
-    textAlign: 'center'
-  },
   nav: {
     minHeight: 60,
     display: 'inline-block'
