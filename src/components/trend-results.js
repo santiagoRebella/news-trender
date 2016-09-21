@@ -8,7 +8,7 @@ class TrendResults extends React.Component {
   render() {
     let related = this.props.data.map((item, ind) => {
       let title = item.titles.map((t, index) => {
-        return rc("h2", { key: t + "" + index }, t
+        return rc("h2", { key: t + "" + index, style: styles.trendRelatedTitle }, t
         );
       });
       let p = item.p.map((par, index) => {

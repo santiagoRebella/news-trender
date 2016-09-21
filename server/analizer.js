@@ -7,6 +7,7 @@ const cleanFromTrash = (string) => {
   string = string.replace(/\n/g, '');
   string = string.replace(/\t/g, '');
   string = string.replace(/\s\s+/g, '');
+  string = string.replace(/&nbsp;/g, ' ');
 
   return string;
 };

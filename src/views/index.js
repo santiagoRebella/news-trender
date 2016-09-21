@@ -28,28 +28,28 @@ class Index extends React.Component {
         rc("title", {}, "News Trender")
       ),
       rc("body", { style: styles.body },
-        rc("div", { style: styles.container },
-          rc("section", {},
-            rc(Header, {
-              title: "News Trender",
-              tagsString: constants.topBanner
-            })
-          ),
-          rc("section", {style: {float: "left"}},
+        rc("section", {},
+          rc(Header, {
+            title: "News Trender",
+            tagsString: constants.topBanner
+          })
+        ),
+        rc("section", { style: styles.container },
+          rc("section", {style: styles.sectionLeftAd},
             rc(External, {tagsString: constants.sideBannerBig})
           ),
-          rc("section", {style: {display: "inline-block", padding: 10}},
+          rc("section", {style: styles.sectionContent},
             rc(LinksBox, {data: this.props.data})
           ),
-          rc("section", {style: {float: "right"}},
+          rc("section", {style: styles.sectionRightAd},
             rc(External, {tagsString: constants.sideBannerBig})
-          ),
-          rc("section", {},
-            rc(Footer, {tagsString: constants.footerBannerBig})
-          ),
-          rc("section", {},
-            rc(External, {tagsString: constants.analytics})
           )
+        ),
+        rc("section", {},
+          rc(Footer, {tagsString: constants.footerBannerBig})
+        ),
+        rc("section", {},
+          rc(External, {tagsString: constants.analytics})
         )
       )
     );

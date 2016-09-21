@@ -28,29 +28,29 @@ class Page extends React.Component {
         rc("title", {}, title)
       ),
       rc("body", {style: styles.body},
-        rc("div", { style: styles.container },
-          rc("section", {},
-            rc(Header, {
-              title: title,
-              trendRank,
-              tagsString: constants.topBanner
-            })
-          ),
-          rc("section", {style: {float: "left"}},
+        rc("section", {},
+          rc(Header, {
+            title: title,
+            trendRank,
+            tagsString: constants.topBanner
+          })
+        ),
+        rc("section", { style: styles.container },
+          rc("section", {style: styles.sectionLeftAd},
             rc(External, {tagsString: constants.sideBannerBig})
           ),
-          rc("section", {style: {display: "inline-block", width: 424, padding: 10}},
+          rc("section", {style: styles.sectionContent},
             rc(TrendResults, {data: this.props.data})
           ),
-          rc("section", {style: {float: "right"}},
+          rc("section", {style: styles.sectionRightAd},
             rc(External, {tagsString: constants.sideBannerBig})
-          ),
-          rc("section", {},
-            rc(Footer, {tagsString: constants.footerBannerBig})
-          ),
-          rc("section", {},
-            rc(External, {tagsString: constants.analytics})
           )
+        ),
+        rc("section", {},
+          rc(Footer, {tagsString: constants.footerBannerBig})
+        ),
+        rc("section", {},
+          rc(External, {tagsString: constants.analytics})
         )
       )
     );

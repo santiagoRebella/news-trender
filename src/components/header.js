@@ -7,7 +7,7 @@ const External = require('../components/external');
 
 class Header extends React.Component {
   render() {
-    const trendString = this.props.trendRank ? `trend number ${this.props.trendRank + 1}` : "";
+    const trendString = this.props.trendRank ? `${this.props.trendRank + 1}` : "";
 
     return rc("header", {style: styles.header},
       rc("h1", {style: styles.h1}, this.props.title,
