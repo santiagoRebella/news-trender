@@ -55,6 +55,15 @@ module.exports = {
     overflow: 'hidden',
     textOverflow: 'ellipsis'
   },
+
+  trendRelated: {
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    border: '1px solid black',
+    borderRadius: 5,
+    padding: 5,
+    margin: 5
+  },
+
   indexSpan: {
 
   }

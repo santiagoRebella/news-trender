@@ -11,6 +11,17 @@ const cleanFromTrash = (string) => {
   return string;
 };
 
+function unique(arr) {
+    var u = {}, a = [];
+    for(var i = 0, l = arr.length; i < l; ++i){
+        if(!u.hasOwnProperty(arr[i])) {
+            a.push(arr[i]);
+            u[arr[i]] = 1;
+        }
+    }
+    return a;
+}
+
 module.exports = (pages) => {
 
   let totals = [];
@@ -74,18 +85,21 @@ module.exports = (pages) => {
       item.titles.forEach(title => {
         if (title.indexOf(item.term.val) !== -1) { related.titles.push(title); }
       });
+      related.titles = unique(related.titles);
     }
 
     if (item.p) {
       item.p.forEach(p => {
         if (p.indexOf(item.term.val) !== -1) { related.p.push(p); }
       });
+      related.p = unique(related.p);
     }
 
     if (item.divs) {
       item.divs.forEach(div => {
         if (div.indexOf(item.term.val) !== -1) { related.divs.push(div); }
       });
+      item.divs = unique(item.divs);
     }
 
     if (item.metas) {

@@ -4,22 +4,9 @@ const React = require('react');
 const rc = React.createElement;
 const styles = require('../styles');
 
-function unique(arr) {
-    var u = {}, a = [];
-    for(var i = 0, l = arr.length; i < l; ++i){
-        if(!u.hasOwnProperty(arr[i])) {
-            a.push(arr[i]);
-            u[arr[i]] = 1;
-        }
-    }
-    return a;
-}
-
-
 class TrendResults extends React.Component {
   render() {
     let related = this.props.data.map((item, ind) => {
-      item.titles = unique(item.titles);
       let title = item.titles.map((t, index) => {
         return rc("h2", { key: t + "" + index }, t
         );
@@ -29,12 +16,12 @@ class TrendResults extends React.Component {
       });
 
       return rc("div", {
-        style: styles.nav,
+        style: styles.trendRelated,
         key: "rel" + ind
       },
         title,
         p,
-        rc("a", { href: "http://" + item.url.host + "/" + item.url.path }, item.url.host)
+        rc("a", { href: `http://${item.url.host}/${item.url.path}` }, item.url.host)
       );
     });
 

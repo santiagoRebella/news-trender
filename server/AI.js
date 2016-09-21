@@ -6,8 +6,7 @@ const ReactDOMServer = require('react-dom/server');
 const searcher= require('./searcher');
 const trender = require('./trender');
 const scrapper = require('./scrapper');
-const parsePages = require('./parse-pages');
-const proper = require('./proper');
+const analizer = require('./analizer');
 
 const Page = require('../src/views/page');
 const Index= require('../src/views/index');
@@ -15,30 +14,32 @@ const Index= require('../src/views/index');
 let AI = {};
 
 AI.trends = [];
-AI.properData = [];
 
-AI.searcher = (data, server) => {
-  searcher(data)
+AI.searcher = (trends, server) => {
+  searcher(trends)
     .then(results => AI.scrapper(results, server))
     .catch(err => console.error('error on searcher -->', err));
 };
 
 AI.scrapper = (results, server) => {
   scrapper(results)
-    .then(data => {
-      AI.properData = parsePages(data);
-      AI.render(proper(parsePages(data)), server);
+    .then(pages => {
+      AI.analizer(pages, server);
     })
     .catch(err => console.error('error on scrapper -->', err));
 };
 
+AI.analizer = (pages, server) => {
+  AI.render(analizer(pages), server);
+};
+
 AI.init = (server) => {
   trender()
-    .then((data) => {
-      AI.trends = data;
-      AI.searcher(data, server);
+    .then((trends) => {
+      AI.trends = trends;
+      AI.searcher(trends, server);
     })
-    .catch((data) => { console.error('error on trender -->', data); });
+    .catch(err => { console.error('error on trender -->', err); });
 
   AI.timer();
 };
@@ -57,9 +58,6 @@ AI.render = (data, server) => {
   });
 
 };
-
-AI.restartInterval;
-AI.keepAliveInterval;
 
 AI.timer = () => {
   // http://sstut.com/javascript/convert-hours-minutes-seconds-to-milliseconds.php

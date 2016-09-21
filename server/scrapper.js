@@ -3,9 +3,9 @@
 const http = require('http');
 const parseLinks = require('./parse-google-links');
 
-module.exports = (rawData) => {
+module.exports = (googleResults) => {
 
-  let linksCollection = parseLinks(rawData);
+  let linksCollection = parseLinks(googleResults);
 
   let itemsRequests = [];
 
@@ -43,7 +43,15 @@ module.exports = (rawData) => {
 
                 console.log(counter);
 
-                resol({url: {host: host, path: path}, term: item.term, data: body});
+                resol({
+                  url: {
+                    host,
+                    path
+                  },
+                  term: item.term,
+                  data: body
+                });
+
               });
           }).on('error', (e) => {
             reje(e.message)
@@ -64,6 +72,5 @@ module.exports = (rawData) => {
   });
 
   return pages;
-
 
 }
