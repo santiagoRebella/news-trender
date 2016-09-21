@@ -53,12 +53,14 @@ module.exports = {
     textAlign: 'center'
   },
   rank: {
+    display: 'inline-block',
     fontWeight: 'bold',
     margin: 10,
+    width: 20,
     border: '1px solid black',
     borderRadius: 15,
     padding: 1,
-    fontSize: '1rem'
+    fontSize: '0.8rem'
   },
   a: {
     textDecoration: 'none',
@@ -68,8 +70,6 @@ module.exports = {
   linkRow : {
     display: 'block',
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    border: '1px solid black',
-    borderRadius: 5,
     padding: 5,
     margin: 5,
     textDecoration: 'none',
@@ -80,8 +80,6 @@ module.exports = {
   },
   trendRelated: {
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    border: '1px solid black',
-    borderRadius: 5,
     padding: 5,
     margin: 5
   },
